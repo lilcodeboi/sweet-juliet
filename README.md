@@ -59,10 +59,21 @@ To run the integration tests, use the following command:
 
 ```bash
 cd angular-ui
-npm run test:integration
+npx vitest --coverage
 ```
 
-You can also view the coverage report in the browser by running:
+### Performance Tests
+
+Performance tests have been performed using Lighthouse.
+
+To run Lighthouse performance audits:
+
+```bash
+cd angular-ui
+npm run lighthouse
+```
+
+You can also view the lighthouse report in the browser by running:
 
 ```bash
 cd angular-ui
@@ -77,17 +88,6 @@ xdg-open ./lighthouse-report.html
 
 **Current Lighthouse report:** 
 ![Lighthouse Report](./docs/lighthouse_report.png)
-
-### Performance Tests
-
-Performance tests have been performed using Lighthouse.
-
-To run Lighthouse performance audits:
-
-```bash
-cd angular-ui
-npm run lighthouse
-```
 
 This will launch the Electron app with remote debugging, run Lighthouse against it, and generate a performance report at `./lighthouse/lighthouse-report.html`.
 
