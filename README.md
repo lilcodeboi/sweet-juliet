@@ -26,6 +26,71 @@ The Sweet Juliet application is designed to run entirely locally on the user's c
 3. Run the installer and follow the prompts.
 4. Launch the application from the Start menu.
 
+## Testing
+
+### Unit Tests
+
+Code coverage is being maintained at a minimum of 75% for all components and services combined.
+
+To run the tests, use the following command:
+
+```bash
+cd angular-ui
+npm run test
+```
+
+You can also view the coverage report in the browser by running:
+
+```bash
+cd angular-ui
+
+# Windows command
+start ./coverage/index.html
+# macOS command
+open ./coverage/index.html
+# Linux command
+xdg-open ./coverage/index.html
+```
+
+
+### Integration Tests
+
+To run the integration tests, use the following command:
+
+```bash
+cd angular-ui
+npm run test:integration
+```
+
+You can also view the coverage report in the browser by running:
+
+```bash
+cd angular-ui
+
+# Windows command
+start ./lighthouse-report.html
+# macOS command
+open ./lighthouse-report.html
+# Linux command
+xdg-open ./lighthouse-report.html
+```
+
+**Current Lighthouse report:** 
+![Lighthouse Report](./docs/lighthouse_report.png)
+
+### Performance Tests
+
+Performance tests have been performed using Lighthouse.
+
+To run Lighthouse performance audits:
+
+```bash
+cd angular-ui
+npm run lighthouse
+```
+
+This will launch the Electron app with remote debugging, run Lighthouse against it, and generate a performance report at `./lighthouse/lighthouse-report.html`.
+
 ## Developer Notes
 
 - Application has only been tested on Windows 11.
