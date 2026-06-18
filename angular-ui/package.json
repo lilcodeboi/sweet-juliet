@@ -7,7 +7,8 @@
     "start": "ng serve",
     "build": "ng build --base-href ./",
     "electron": "ng build --base-href ./ && electron .",
-    "test": "ng test"
+    "test": "ng test",
+    "lighthouse": "node lighthouse/lighthouse-audit.mjs"
   },
   "private": true,
   "packageManager": "npm@11.9.0",
@@ -41,11 +42,17 @@
     "@angular/build": "^21.2.14",
     "@angular/cli": "^21.2.14",
     "@angular/compiler-cli": "^21.2.0",
+    "@angular/platform-browser-dynamic": "^20.0.7",
     "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.6",
     "@types/node": "^20.19.41",
+    "@vitest/coverage-v8": "^4.1.9",
     "electron": "^42.3.3",
+    "jsdom": "^29.1.1",
+    "lighthouse": "^13.4.0",
     "prettier": "^3.8.1",
-    "typescript": "~5.9.2"
+    "puppeteer-core": "^25.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.1.9"
   }
 }
