@@ -1,0 +1,3 @@
+<app-taskbar *ngIf="authService.isLoggedIn() && !(router.url === '/login' || router.url === '/signup')"></app-taskbar>
+
+<router-outlet></router-outlet>

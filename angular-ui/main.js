@@ -1,4 +1,7 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}
 const path = require('path');
 const { DatabaseService } = require('./database/database.service');
 
@@ -17,7 +20,7 @@ function createWindow() {
       nodeIntegration: false
     }
   });
-
+  // mainWindow.webContents.openDevTools();
   mainWindow.loadFile(path.join(__dirname, 'dist/sweet-juliet/browser/index.html'));
 }
 
@@ -74,10 +77,7 @@ function setupIpcHandlers() {
   });
 
   ipcMain.handle('getMetric', async (event, metric_id) => {
-    const fs = require('fs');
-    fs.appendFileSync('debug.log', `IPC getMetric called with metric_id: ${metric_id}\n`);
     const result = databaseService.getMetric(metric_id);
-    fs.appendFileSync('debug.log', `IPC getMetric result: ${JSON.stringify(result)}\n`);
     return result;
   });
 

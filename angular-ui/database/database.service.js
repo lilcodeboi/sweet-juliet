@@ -506,15 +506,10 @@ class DatabaseService {
     if (!this.db) throw new Error('Database not initialized');
 
     const result = this.db.exec('SELECT * FROM metrics WHERE metric_id = ?', [metric_id]);
-    const fs = require('fs');
-    fs.appendFileSync('debug.log', `getMetric called with metric_id: ${metric_id}\n`);
-    fs.appendFileSync('debug.log', `getMetric result: ${JSON.stringify(result)}\n`);
     if (result.length === 0) {
-      fs.appendFileSync('debug.log', 'getMetric: no results found\n');
       return null;
     }
     const values = result[0].values[0];
-    fs.appendFileSync('debug.log', `getMetric values: ${JSON.stringify(values)}\n`);
     const metric = {
       metric_id: values[0],
       metric_date_time: values[1],
@@ -522,7 +517,6 @@ class DatabaseService {
       child_id: values[3],
       metric_record: values[4]
     };
-    fs.appendFileSync('debug.log', `getMetric returning: ${JSON.stringify(metric)}\n`);
     return metric;
   }
 

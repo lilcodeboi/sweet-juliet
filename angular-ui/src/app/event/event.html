@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card inner-container">
+    <div class="card-header primary-text text-center">
+      <h3>Baby Event</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="eventType" class="form-label primary-text">Event Type</label>
+                    <select class="form-select primary-text" id="eventType" formControlName="eventType" required aria-label="Event Type">
+                        <option value="0" selected>Appointment</option>
+                        <option value="1">Milestone</option>
+                        <option value="2">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="eventDateTime" class="form-label primary-text">Date and Time</label>
+                    <input type="datetime-local" class="form-control primary-text" id="eventDateTime" formControlName="eventDateTime">
+                </div>
+                <div class="mb-3">
+                    <label for="eventDuration" class="form-label primary-text">Duration (minutes)</label>
+                    <input type="number" class="form-control primary-text" id="eventDuration" formControlName="eventDuration">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="eventName" class="form-label primary-text">Event Name</label>
+                    <input type="text" class="form-control primary-text" id="eventName" formControlName="eventName" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="eventNotes" class="form-label primary-text">Notes</label>
+                    <textarea class="form-control primary-text" id="eventNotes" formControlName="eventNotes" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row" *ngIf="!eventExists">
+                <div class="col-12 mb-3 text-center">
+                    <button type="submit" class="btn accent primary-text btn-hover w-75">Submit</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="eventExists">
+                <div class="col-6 mb-3 text-center">
+                    <button type="submit" class="btn accent primary-text btn-hover w-75">Submit</button>
+                </div>
+                <div class="col-6 mb-3 text-center">
+                    <button type="button" class="btn alert-box alert-box-hover w-75" (click)="onDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

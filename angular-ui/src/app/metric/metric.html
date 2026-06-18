@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card inner-container">
+    <div class="card-header primary-text text-center">
+      <h3>Baby Metric</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="metricForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="metricType" class="form-label primary-text">Type</label>
+                    <select class="form-select primary-text" id="metricType" formControlName="metricType" required aria-label="Metric Type">
+                        <option value="0" selected>Feed</option>
+                        <option value="1">Sleep</option>
+                        <option value="2">Height</option>
+                        <option value="3">Weight</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="metricTime" class="form-label primary-text">Time</label>
+                    <input type="time" class="form-control primary-text" id="metricTime" formControlName="metricTime" required>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="metricValue" class="form-label primary-text">Value ({{ getMetricUnit() }})</label>
+                    <input type="number" class="form-control primary-text" id="metricValue" formControlName="metricValue" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="metricNotes" class="form-label primary-text">Notes</label>
+                    <textarea class="form-control primary-text" id="metricNotes" formControlName="metricNotes" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row" *ngIf="!metricExists">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn accent primary-text btn-hover w-75">Submit</button>
+                </div>
+            </div>
+            <div class="row mb-3" *ngIf="metricExists">
+                <div class="col-6 text-center">
+                    <button type="submit" class="btn accent primary-text btn-hover w-75">Submit</button>
+                </div>
+                <div class="col-6 text-center">
+                    <button type="button" class="btn alert-box alert-box-hover w-75" (click)="onDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

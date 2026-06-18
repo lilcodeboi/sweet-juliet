@@ -19,3 +19,16 @@ The Sweet Juliet application is designed to run entirely locally on the user's c
 
 ## Installation
 
+1. Download the latest release from the [Releases](https://github.com/lilcodeboi/sweet-juliet/releases) page or click the last release in github repository.
+![Releases](./docs/show_releases.png)
+2. Download the installer from the latest release.
+![Installer](./docs/show_windows_setup.png)
+3. Run the installer and follow the prompts.
+4. Launch the application from the Start menu.
+
+## Developer Notes
+
+- Application has only been tested on Windows 11.
+- Application is not yet available for other platforms.
+- Currently in development state and not ready for production use.
+- May have bugs and unexpected behavior.

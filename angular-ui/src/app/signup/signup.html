@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 my-auto">
+            <button type="button" class="btn w-75 accent primary-text btn-hover" (click)="login()">Back</button>
+        </div>
+        <div class="col-6 text-center">
+            <img src="../../../public/images/logo-name.png" class="text-center" width="200" height="200">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center primary-text">
+            <h1>Register</h1>
+        </div>
+    </div>
+    <div *ngIf="errorMessage" class="alert-box">
+        {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="alert-box">
+        {{ successMessage }}
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="register()">
+        <div class="row">
+            <div class="col-6">
+                <div class="card inner-container">
+                    <div class="card-header primary-text text-center">
+                        <h3>Parent Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control primary-text" id="firstName" formControlName="firstName" placeholder="Enter your first name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control primary-text" id="lastName" formControlName="lastName" placeholder="Enter your last name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control primary-text" id="email" formControlName="email" placeholder="Enter your email">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control primary-text" id="username" formControlName="username" placeholder="Enter your username">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control primary-text" id="password" formControlName="password" placeholder="Enter your password">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control primary-text" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card inner-container">
+                    <div class="card-header primary-text text-center">
+                        <h3>Child Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control primary-text" id="childFName" formControlName="childFName" placeholder="Enter your child's first name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control primary-text" id="childLName" formControlName="childLName" placeholder="Enter your child's last name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control primary-text" id="childBirthDate" formControlName="childBirthDate" placeholder="Enter your child's birth date">
+                        </div>
+                        <div class="input-group mb-3">
+                            <select class="form-select primary-text" id="childGender" formControlName="childGender" required aria-label="Child Gender">
+                                <option value="0" selected>Male</option>
+                                <option value="1">Female</option>
+                                <option value="2">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <button type="submit" class="btn w-75 accent primary-text btn-hover" [disabled]="signupForm.invalid">Register</button>
+        </div>
+    </form>
+</div>

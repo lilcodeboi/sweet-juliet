@@ -1,0 +1,77 @@
+body {
+  background-color: #f8f2ed;
+}
+
+.inner-container {
+  background-color: #d7e6f5;
+}
+
+.accent {
+  background-color: #bcead5;
+}
+
+.primary-text {
+  color: #5b7a8a !important;
+}
+
+.taskbar {
+  background-color: #f1e6da;
+}
+
+.alert-box {
+  background-color: #f4c7c3;
+  color: #8b5e5e;
+}
+
+.alert-box:hover {
+  background-color: #e8b8b4;
+}
+
+.success-box {
+  background-color: #bcead5;
+  color: #5e8b5e;
+}
+
+.btn-hover {
+  &:hover {
+    background-color: #a8d8c2;
+  }
+}
+
+.fc .fc-col-header-cell,
+.fc .fc-daygrid-day-top {
+  background-color: transparent !important;
+}
+
+.fc-view-harness,
+.fc .fc-scrollgrid {
+  background-color: #d7e6f5 !important;
+}
+
+.fc .fc-col-header-cell-cushion, 
+.fc .fc-daygrid-day-number,
+.fc .fc-toolbar-title,
+.fc a {
+  color: #5b7a8a !important;
+  text-decoration: none !important;
+}
+
+.fc-theme-standard td, 
+.fc-theme-standard th, 
+.fc-theme-standard .fc-scrollgrid {
+  border-color: #f1e6da !important;
+}
+
+.fc-event,
+.fc-event-main,
+.fc-daygrid-event {
+  cursor: pointer !important;
+}
+
+.fc .fc-daygrid-day {
+  cursor: pointer !important;
+}
+
+.fc .fc-col-header-cell {
+  cursor: pointer !important;
+}

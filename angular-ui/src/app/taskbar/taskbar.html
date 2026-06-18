@@ -1,0 +1,17 @@
+<img src="../../../public/images/logo.png" alt="Menu" width="50" height="50" style="cursor: pointer;" (click)="open(offcanvas)">
+
+<ng-template #offcanvas let-offcanvas>
+  <div class="offcanvas-header taskbar">
+    <img src="../../../public/images/logo.png" alt="Menu" width="50" height="50" class="offcanvas-title taskbar">
+    <button type="button" class="btn-close" (click)="offcanvas.close()" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body taskbar">
+    <div class="list-group list-group-flush primary-text taskbar">
+      <a class="list-group-item list-group-item-action taskbar" style="cursor: pointer;" (click)="onNavigate('summary'); offcanvas.close()">Dashboard</a>
+      <a class="list-group-item list-group-item-action taskbar" style="cursor: pointer;" (click)="onNavigate('calendar'); offcanvas.close()">Calendar</a>
+      <a class="list-group-item list-group-item-action taskbar" style="cursor: pointer;" (click)="onNavigate('progress'); offcanvas.close()">Progress</a>
+      <a class="list-group-item list-group-item-action taskbar" style="cursor: pointer;" (click)="onNavigate('profile'); offcanvas.close()">Profile</a>
+      <a class="list-group-item list-group-item-action taskbar" style="cursor: pointer;" (click)="onNavigate('login'); offcanvas.close()">Logout</a>
+    </div>
+  </div>
+</ng-template>

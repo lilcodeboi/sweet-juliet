@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card inner-container mb-3">
+    <div class="card-header text-center primary-text">
+      <h3>Choose Metrics</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-3 mb-3">
+            <label for="metricType" class="form-label primary-text">Metric Type</label>
+            <select id="metricType" formControlName="metricType" class="form-select primary-text">
+              <option value="0">Feeding</option>
+              <option value="1">Sleep</option>
+              <option value="2">Height</option>
+              <option value="3">Weight</option>
+            </select>
+          </div>
+          <div class="col-3 mb-3">
+            <label for="startDate" class="form-label primary-text">Start Date</label>
+            <input type="date" id="startDate" formControlName="startDate" class="form-control primary-text">
+          </div>
+          <div class="col-3 mb-3">
+            <label for="endDate" class="form-label primary-text">End Date</label>
+            <input type="date" id="endDate" formControlName="endDate" class="form-control primary-text">
+          </div>
+          <div class="col-3 mb-3">
+            <label for="timeUnit" class="form-label primary-text">Time Unit</label>
+            <select id="timeUnit" formControlName="timeUnit" class="form-select primary-text">
+              <option value="day">Day</option>
+              <option value="week">Week</option>
+              <option value="month">Month</option>
+              <option value="year">Year</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-12 mb-3 my-auto text-center">
+              <button type="submit" class="btn accent primary-text btn-hover w-50">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card inner-container">
+    <div class="card-body">
+      <div style="height: 400px;">
+        <canvas #chartCanvas></canvas>
+      </div>
+    </div>
+  </div>
+</div>

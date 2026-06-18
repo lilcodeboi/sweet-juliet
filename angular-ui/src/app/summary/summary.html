@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-2 my-auto text-center ">
+      <button type="button" class="btn accent btn-hover w-75 primary-text" (click)="onPrevious()">Previous</button>
+    </div>
+    <div class="col-8 my-auto text-center">
+      <div class="card inner-container">
+        <div class="card-body text-center primary-text">
+          <h3>{{ summaryDateString }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 my-auto text-center">
+      <button type="button" class="btn accent btn-hover w-75 primary-text" (click)="onNext()">Next</button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-4">
+      <div class="card inner-container">
+        <div class="card-header primary-text text-center">
+          <div class="row">
+            <div class="col-8">
+              <h3>Feeding</h3>
+            </div>
+            <div class="col-4">
+              <button type="button" (click)="onAddFeeding()" class="btn primary-text accent btn-hover w-100">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body primary-text text-center">
+          <p>{{ feedingCount }} {{ feedingUnit }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card inner-container">
+        <div class="card-header primary-text text-center">
+          <div class="row">
+            <div class="col-8">
+              <h3>Sleep</h3>
+            </div>
+            <div class="col-4">
+              <button type="button" (click)="onAddSleep()" class="btn primary-text accent btn-hover w-100">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body primary-text text-center">
+          <p>{{ sleepCount }} {{ sleepUnit }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card inner-container">
+        <div class="card-header primary-text text-center">
+          <div class="row">
+            <div class="col-8">
+              <h3>Measurements</h3>
+            </div>
+            <div class="col-4">
+              <button type="button" (click)="onAddBiometrics()" class="btn primary-text accent btn-hover w-100">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 primary-text text-center">
+              <p><b>H: </b>{{ lastHeight }} {{ heightUnit }}</p>
+            </div>
+            <div class="col-6 primary-text text-center">
+              <p><b>W: </b>{{ lastWeight }} {{ weightUnit }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="card inner-container">
+        <div class="card-header primary-text text-center">
+          <h3>Notes</h3>
+        </div>
+        <div class="card-body primary-text text-center">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item inner-container" *ngFor="let item of notesWithAssociations">
+              <div class="row">
+                <div class="col-6 text-start">
+                  <p class="mb-0 primary-text" *ngIf="item.associated && isEvent(item.associated)">
+                    <b>{{ $any(item.associated)?.event_name }}</b> @ {{ $any(item.associated)?.event_start_date_time | date:'short' }}
+                  </p>
+                  <p class="mb-0 primary-text" *ngIf="item.associated && !isEvent(item.associated)">
+                    <b>{{ MetricType[$any(item.associated)?.metric_type!] }}</b> @ {{ $any(item.associated)?.metric_date_time | date:'short' }}
+                  </p>
+                </div>
+                <div class="col-6 text-start">
+                  <p class="primary-text">{{ item.note.note_record }}</p>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!notesWithAssociations || notesWithAssociations.length === 0" class="text-center primary-text">
+              No logs or notes written for this date.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card inner-container">
+        <div class="card-header primary-text text-center">
+          <div class="row">
+            <div class="col-8">
+              <h3>Upcoming</h3>
+            </div>
+            <div class="col-4">
+              <button type="button" (click)="onAddEvent()" class="btn primary-text accent btn-hover w-100">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body primary-text text-center">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item inner-container" *ngFor="let event of upcomingEvents">
+              <p class="primary-text"><b>{{ event.event_name }}</b> @ {{ event.event_start_date_time | date:'short' }}</p>
+            </div>
+            <div *ngIf="!upcomingEvents || upcomingEvents.length === 0" class="text-center primary-text">
+              No upcoming events scheduled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+/* Target the calendar component element wrapper directly */
+full-calendar {
+  /* Main Background Elements */
+  --fc-page-bg-color: #d7e6f5;          /* Matches your .inner-container background */
+  --fc-neutral-bg-color: #f8f2ed;       /* Matches your page body color background */
+  
+  /* Text and Interface Lines */
+  --fc-text-color: #5b7a8a;             /* Matches your .primary-text color hex */
+  --fc-border-color: #f1e6da;           /* Matches your subtle .taskbar background */
+
+  /* Calendar Internal Action Items (Buttons and Navigation Links) */
+  --fc-button-bg-color: #bcead5;        /* Matches your .accent background color */
+  --fc-button-text-color: #5b7a8a;      /* Matches your .primary-text color */
+  --fc-button-border-color: #bcead5;    
+  
+  --fc-button-hover-bg-color: #a8d8c2;  /* Matches your button .btn-hover color */
+  --fc-button-hover-border-color: #a8d8c2;
+  
+  --fc-button-active-bg-color: #a8d8c2;
+  --fc-button-active-border-color: #a8d8c2;
+
+  /* Calendar Planned Event Display Boxes */
+  --fc-event-bg-color: #bcead5;         /* Accent color background for event blocks */
+  --fc-event-text-color: #5b7a8a;       /* Darker text on event tags for readability */
+  --fc-event-border-color: #bcead5;
+}
+
+/* Optional Layout Overrides: Style the specific day number links inside header boxes */
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number {
+  color: #5b7a8a !important;            /* Force primary text color rule over numbers */
+  text-decoration: none;
+}
+
+/* Ensure the Today marker card highlights nicely */
+.fc .fc-day-today {
+  background-color: #f1e6da !important; /* Uses taskbar color to highlight today's column */
+}
