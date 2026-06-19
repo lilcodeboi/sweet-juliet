@@ -20,7 +20,7 @@ function createWindow() {
       nodeIntegration: false
     }
   });
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   mainWindow.loadFile(path.join(__dirname, 'dist/sweet-juliet/browser/index.html'));
 }
 
