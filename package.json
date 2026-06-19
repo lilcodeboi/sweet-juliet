@@ -1,6 +1,6 @@
 {
   "name": "SweetJuliet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./angular-ui/main.js",
   "author": "Shane Sanborn",
   "description": "Sweet Juliet - A desktop application for baby tracking",
